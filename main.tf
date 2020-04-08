@@ -2,7 +2,7 @@ resource "digitalocean_droplet" "csgo" {
   image    = "ubuntu-16-04-x32"
   name     = "csgo"
   region   = "fra1"
-  size     = "2gb"
+  size     = "4gb"
   ssh_keys = ["${var.ssh_fingerprint}"]
 
   connection {
@@ -21,6 +21,8 @@ resource "digitalocean_droplet" "csgo" {
       "wget http://media.steampowered.com/client/steamcmd_linux.tar.gz",
       "tar xfv steamcmd_linux.tar.gz",
       "./steamcmd.sh +login anonymous +force_install_dir ./server/ +app_update 740 validate +quit",
+      "useradd -m csgo",
+      "chown csgo /opt/csgo/ -R"
     ]
   }
 }
