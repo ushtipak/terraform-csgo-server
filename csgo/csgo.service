@@ -5,6 +5,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/opt/csgo
+User=csgo
 ExecStart=server/srcds_run -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_bomb +map de_safehouse +sv_setsteamaccount 5F872814BF3666036BEAC952FEFCF98D -net_port_try 1
 
 [Install]
