@@ -38,7 +38,7 @@ resource "digitalocean_droplet" "csgo" {
 
   provisioner "file" {
     source      = "csgo/csgo.service"
-    destination = "/usr/lib/systemd/system/csgo.service"
+    destination = "/usr/lib/systemd/user??/csgo.service"
   }
 
   provisioner "remote-exec" {
