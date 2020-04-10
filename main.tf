@@ -48,5 +48,9 @@ resource "digitalocean_droplet" "csgo" {
       "systemctl start csgo.service"
   }
 
+  provisioner "local-exec" {
+    command = "./mapdns"
+  }
+
 }
 
