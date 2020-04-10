@@ -25,5 +25,28 @@ resource "digitalocean_droplet" "csgo" {
       "chown csgo /opt/csgo/ -R"
     ]
   }
+
+  provisioner "file" {
+    source      = "csgo/autoexec.cfg"
+    destination = "/opt/csgo/server/csgo/cfg/autoexec.cfg"
+  }
+
+  provisioner "file" {
+    source      = "csgo/gamemode_casual.cfg"
+    destination = "/opt/csgo/server/csgo/cfg/gamemode_casual.cfg"
+  }
+
+  provisioner "file" {
+    source      = "csgo/csgo.service"
+    destination = "/usr/lib/systemd/system/csgo.service"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "systemctl daemon-reload",
+      "systemctl enable csgo.service",
+      "systemctl start csgo.service"
+  }
+
 }
 
