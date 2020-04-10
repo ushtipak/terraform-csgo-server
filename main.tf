@@ -46,6 +46,7 @@ resource "digitalocean_droplet" "csgo" {
       "systemctl daemon-reload",
       "systemctl enable csgo.service",
       "systemctl start csgo.service"
+    ]
   }
 
   provisioner "local-exec" {
