@@ -27,8 +27,8 @@ resource "digitalocean_droplet" "csgo" {
   }
 
   provisioner "file" {
-    source      = "csgo/autoexec.cfg"
-    destination = "/opt/csgo/server/csgo/cfg/autoexec.cfg"
+    source      = "csgo/server.cfg"
+    destination = "/opt/csgo/server/csgo/cfg/server.cfg"
   }
 
   provisioner "file" {
@@ -38,11 +38,18 @@ resource "digitalocean_droplet" "csgo" {
 
   provisioner "file" {
     source      = "csgo/csgo.service"
-    destination = "/usr/lib/systemd/user??/csgo.service"
+    destination = "/lib/systemd/system/csgo.service"
+  }
+
+  provisioner "file" {
+    source      = "update_csgo_unit_file_with_ip.sh"
+    destination = "/opt/csgo/update_csgo_unit_file_with_ip.sh"
   }
 
   provisioner "remote-exec" {
     inline = [
+      "chmod +x /opt/csgo/update_csgo_unit_file_with_ip.sh",
+      "/opt/csgo/update_csgo_unit_file_with_ip.sh",
       "systemctl daemon-reload",
       "systemctl enable csgo.service",
       "systemctl start csgo.service"
