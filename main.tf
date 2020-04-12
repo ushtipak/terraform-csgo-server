@@ -37,6 +37,11 @@ resource "digitalocean_droplet" "csgo" {
   }
 
   provisioner "file" {
+    source      = "csgo/gamemode_armsrace.cfg"
+    destination = "/opt/csgo/server/csgo/cfg/gamemode_armsrace.cfg"
+  }
+
+  provisioner "file" {
     source      = "csgo/csgo.service"
     destination = "/lib/systemd/system/csgo.service"
   }
