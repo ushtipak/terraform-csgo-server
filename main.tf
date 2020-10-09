@@ -2,7 +2,7 @@ resource "digitalocean_droplet" "csgo" {
   image    = "ubuntu-16-04-x32"
   name     = "csgo"
   region   = "fra1"
-  size     = "4gb"
+  size     = "s-2vcpu-4gb"
   ssh_keys = ["${var.ssh_fingerprint}"]
 
   connection {
