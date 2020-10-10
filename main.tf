@@ -1,12 +1,10 @@
 resource "digitalocean_droplet" "csgo" {
-  image  = "ubuntu-16-04-x32"
-  name   = "csgo"
-  region = "fra1"
-  size   = "s-2vcpu-4gb"
-  tag    = "csgo"
-  ssh_keys = [
-    data.digitalocean_ssh_key.terraform.id
-  ]
+  image    = "ubuntu-16-04-x32"
+  name     = "csgo"
+  region   = "fra1"
+  size     = "s-2vcpu-4gb"
+  tags     = ["csgo"]
+  ssh_keys = [data.digitalocean_ssh_key.terraform.id]
 
   connection {
     type        = "ssh"
