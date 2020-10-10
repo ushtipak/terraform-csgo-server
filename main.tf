@@ -3,6 +3,7 @@ resource "digitalocean_droplet" "csgo" {
   name   = "csgo"
   region = "fra1"
   size   = "s-2vcpu-4gb"
+  tag    = "csgo"
   ssh_keys = [
     data.digitalocean_ssh_key.terraform.id
   ]
