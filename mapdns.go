@@ -29,7 +29,7 @@ var (
 	token    string
 	debug    = flag.Bool("debug", false, "enable debug")
 	domain   = flag.String("domain", "pijupiju.com", "domain")
-	record   = flag.String("record", "96241179", "record id")
+	record   = flag.String("record", "116193794", "record id")
 	instance = flag.String("instance", "csgo", "droplet name")
 )
 
