@@ -63,7 +63,7 @@ func getTargetIP(droplets Droplets, target string) (ip string) {
 
 	for _, droplet := range droplets.Droplets {
 		if droplet.Name == target {
-			ip = droplet.Networks.V4[0].IP
+			ip = droplet.Networks.V4[1].IP
 		}
 	}
 
