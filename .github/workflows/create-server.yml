@@ -1,0 +1,22 @@
+name: CREATE-SERVER
+
+on:
+  workflow_dispatch:
+    inputs:
+      token:
+        description: 'What… is the air-speed velocity of an unladen swallow?'
+        required: true
+
+jobs:
+  create-server:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Verify create token
+      run: |
+        if [[ "${{ github.event.inputs.token }}" != "${{secrets.TOKEN}}" ]]; then echo "Sie haben vergessen, bitte zu sagen"; exit 2; fi
+
+    - name: Verify happy path
+      run: |
+        echo 'King Arthur: “What do you mean? An African or a European swallow?”'
+
