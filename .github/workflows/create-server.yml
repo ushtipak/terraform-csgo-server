@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: Verify create token
       run: |
-        if [[ "${{ github.event.inputs.token }}" != "${{secrets.TOKEN}}" ]]; then echo "Aaaaaaaaagh"; exit 2; fi
+        if [[ "${{ github.event.inputs.token }}" != "${{ secrets.TOKEN }}" ]]; then echo "Aaaaaaaaagh"; exit 2; fi
 
     - name: Verify happy path
       run: |
@@ -30,4 +30,14 @@ jobs:
 
     - name: Terraform init
       run: terraform init
+
+    - name: Retrieve PVT_KEY
+      run: |
+        echo "${PVT_KEY}" > csgo
+        sudo chmod 600 csgo
+      env:
+        PVT_KEY: "${{ secrets.PVT_KEY }}"
+
+    - name: Terraform plan
+      run: terraform plan -no-color -var "do_token=${secrets.DO_PAT}" -var "pvt_key=csgo"
 
