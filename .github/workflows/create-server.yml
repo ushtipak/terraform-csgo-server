@@ -39,5 +39,5 @@ jobs:
         PVT_KEY: "${{ secrets.PVT_KEY }}"
 
     - name: Terraform apply
-      run: terraform apply -no-color -var "do_token=${{ secrets.DO_PAT }}" -var "pvt_key=pvt_key"
+      run: terraform apply -auto-approve -no-color -var "do_token=${{ secrets.DO_PAT }}" -var "pvt_key=pvt_key"
 
