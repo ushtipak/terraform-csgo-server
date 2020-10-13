@@ -39,5 +39,5 @@ jobs:
         PVT_KEY: "${{ secrets.PVT_KEY }}"
 
     - name: Terraform plan
-      run: terraform plan -no-color -var "do_token=${secrets.DO_PAT}" -var "pvt_key=pvt_key"
+      run: terraform plan -no-color -var "do_token=${{ secrets.DO_PAT }}" -var "pvt_key=pvt_key"
 
