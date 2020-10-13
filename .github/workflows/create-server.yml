@@ -20,3 +20,14 @@ jobs:
       run: |
         echo 'King Arthur: “What do you mean? An African or a European swallow?”'
 
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Fetch Terraform binary
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.13.4
+
+    - name: Terraform init
+      run: terraform init
+
