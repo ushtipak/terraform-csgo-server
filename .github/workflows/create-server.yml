@@ -16,10 +16,6 @@ jobs:
       run: |
         if [[ "${{ github.event.inputs.token }}" != "${{ secrets.TOKEN }}" ]]; then echo "Aaaaaaaaagh"; exit 2; fi
 
-    - name: Verify happy path
-      run: |
-        echo 'King Arthur: “What do you mean? An African or a European swallow?”'
-
     - name: Checkout code
       uses: actions/checkout@v2
 

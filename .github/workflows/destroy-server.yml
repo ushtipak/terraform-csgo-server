@@ -1,0 +1,23 @@
+name: DESTROY-SERVER
+
+on:
+  workflow_dispatch:
+    inputs:
+      token:
+        description: 'What… is the air-speed velocity of an unladen swallow?'
+        required: true
+
+jobs:
+  destroy-server:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Verify create token
+      run: |
+        if [[ "${{ github.event.inputs.token }}" != "${{ secrets.TOKEN }}" ]]; then echo "Aaaaaaaaagh"; exit 2; fi
+
+    - name: Destroy droplet
+      run: |
+        curl -s -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.DO_PAT }}" "https://api.digitalocean.com/v2/droplets?tag_name=csgo"
+      shell: bash
+
