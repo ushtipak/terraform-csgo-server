@@ -33,11 +33,11 @@ jobs:
 
     - name: Retrieve PVT_KEY
       run: |
-        echo "${PVT_KEY}" > csgo
-        sudo chmod 600 csgo
+        echo "${PVT_KEY}" > pvt_key
+        sudo chmod 600 pvt_key
       env:
         PVT_KEY: "${{ secrets.PVT_KEY }}"
 
     - name: Terraform plan
-      run: terraform plan -no-color -var "do_token=${secrets.DO_PAT}" -var "pvt_key=csgo"
+      run: terraform plan -no-color -var "do_token=${secrets.DO_PAT}" -var "pvt_key=pvt_key"
 
