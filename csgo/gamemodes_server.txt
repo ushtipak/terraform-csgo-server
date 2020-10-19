@@ -1,0 +1,1046 @@
+// To use this file, rename it to GameModes_Server.txt
+//
+// Values here override the default gamemodes.txt 
+
+"GameModes_Server.txt"
+{
+	"gameTypes"
+	{
+		"classic"
+		{
+			"gameModes"
+			{
+				"casual"
+				{
+					"convars"
+					{
+						"sv_allow_votes"					"0"
+						"mp_roundtime"						"2"
+					}
+					
+					"exec"
+					{
+						"exec" "my_server_override.cfg"
+					}
+
+					"mapgroupsMP"						// List of mapgroups valid for this game mode
+					{
+						"mg_bomb"		"0"
+						"mg_hostage"		"1"
+						"mg_dust"		"2"
+					}
+				}
+
+				"competitive"
+				{
+					"convars"
+					{
+						"mp_startmoney"							"888"
+						"mp_maxmoney"							"9999"
+					}
+					
+					"exec"
+					{
+						"exec" "my_server_override.cfg"
+					}
+
+					"mapgroupsMP"						// List of mapgroups valid for this game mode
+					{
+						"mg_bomb"		"0"
+						"mg_hostage"	"1"
+						"mg_dust"		"2"
+					}
+				}
+			}	
+		}
+		
+		"gungame"
+		{
+			"gameModes"
+			{
+				"gungameprogressive" // Arms-Race
+				{
+					"convars"
+					{
+					
+					}
+					
+					"exec"
+					{
+						"exec" "my_server_override.cfg"
+					}
+
+					"mapgroupsMP"
+					{
+						"mg_armsrace"	"0"
+					}
+				}
+				
+				"gungametrbomb" // Demolition
+				{
+				    "convars"
+					{
+					
+					}
+					
+					"exec"
+					{
+						"exec" "my_server_override.cfg"
+					}
+
+					"mapgroupsMP"
+					{
+						"mg_demolition"		"0"
+					}
+				}
+				
+				"deathmatch" // Demolition
+				{
+				    "convars"
+					{
+					
+					}
+					
+					"exec"
+					{
+						"exec" "my_server_override.cfg"
+					}
+
+					"mapgroupsMP"
+					{
+						"mg_bomb"		"0"
+					}
+				}
+			}
+		}
+	}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Map groups
+//
+// To use a mapgroup, it needs to be defined in a keyvalues
+// block such as the example below, as well as listed in the 
+// 'mapgroupsMP' block within the game mode that will run it,
+// such as the example above.
+//
+// Then launch the server with '+mapgroup MAPGROUPNAME'
+//
+// Example:
+//
+// srcds -game csgo +game_mode 1 +mapgroup mg_bomb +map de_nuke
+//
+//
+// Check the developer wiki for updated community info
+// https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Dedicated_Servers
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	"mapgroups"
+	{
+		"mg_hostage"
+		{
+			"imagename"		"mapgroup-hostage"
+			"nameID"		"#SFUI_Mapgroup_hostage"
+			"name"			"mg_hostage"
+			"maps"
+			{
+				"cs_office"		""
+				"cs_italy"		""
+			}
+		}
+
+		"mg_bomb"
+		{
+			"imagename"		"mapgroup-bomb"
+			"nameID"		"#SFUI_Mapgroup_bomb"
+			"name"			"mg_bomb"
+			"maps"
+			{
+				"cs_office"		""
+				"cs_italy"		""
+				"de_dust2"		""
+				"de_train"		""
+				"de_inferno"	""
+				"de_aztec"		""
+				"de_nuke"		""
+			}
+		}
+		
+		"mg_dust"
+		{
+			"imagename"		"map-dust2-overall"
+			"nameID"		"#SFUI_Mapgroup_dust"
+			"name"			"mg_dust"
+			"maps"
+			{
+				"de_dust2"		""
+			}
+		}
+
+		"mg_armsrace"
+		{
+			"imagename"		"mapgroup-armsrace"
+			"nameID"		"#SFUI_Mapgroup_armsrace"
+			"name"			"mg_armsrace"
+			"maps"
+			{
+				"ar_shoots"		""
+				"ar_baggage"		""
+			}
+		}
+
+		"mg_demolition"
+		{
+			"imagename"		"mapgroup-demolition"
+			"nameID"		"#SFUI_Mapgroup_demolition"
+			"name"			"mg_demolition"
+			"maps"
+			{
+				"de_lake"		""
+				"de_stmarc"		""
+				"de_sugarcane"		""
+				"de_bank"		""
+				"de_safehouse"		""
+				"de_shorttrain"		""
+			}
+		}
+		
+		//
+		// Single map groups
+		//
+
+		"mg_de_train"
+		{
+			"imagename"		"map-train-overall"
+			"nameID"		"#SFUI_Map_de_train"
+			"name"			"mg_de_train"
+			"maps"
+			{
+				"de_train"		""
+			}
+		}
+
+		"mg_de_dust2"
+		{
+			"imagename"		"map-dust2-overall"
+			"nameID"		"#SFUI_Map_de_dust2"
+			"name"			"mg_de_dust2"
+			"maps"
+			{
+				"de_dust2"		""
+				"de_nuke"		""
+				"cs_italy"		""
+				"de_train"		""
+				"cs_assault"	"Lukin assault"
+				"cs_office"	""
+				"de_inferno"	""
+				"de_mirage"	    ""
+				"de_cache"	    ""
+
+			}
+		}
+
+		"mg_de_aztec"
+		{
+			"imagename"		"map-aztec-overall"
+			"nameID"		"#SFUI_Map_de_aztec"
+			"name"			"mg_de_aztec"
+			"maps"
+			{
+				"de_aztec"		""
+			}
+		}
+
+		"mg_de_inferno"
+		{
+			"imagename"		"map-inferno-overall"
+			"nameID"		"#SFUI_Map_de_inferno"
+			"name"			"mg_de_inferno"
+			"maps"
+			{
+				"de_inferno"		""
+			}
+		}
+
+		"mg_de_nuke"
+		{
+			"imagename"		"map-nuke-overall"
+			"nameID"		"#SFUI_Map_de_nuke"
+			"name"			"mg_de_nuke"
+			"maps"
+			{
+				"de_nuke"		""
+			}
+		}
+
+		"mg_cs_italy"
+		{
+			"imagename"		"map-italy-overall"
+			"nameID"		"#SFUI_Map_cs_italy"
+			"name"			"mg_cs_italy"
+			"maps"
+			{
+				"cs_italy"		""
+			}
+		}
+
+		"mg_cs_office"
+		{
+			"imagename"		"map-office-overall"
+			"nameID"		"#SFUI_Map_cs_office"
+			"name"			"mg_cs_office"
+			"maps"
+			{
+				"cs_office"		""
+			}
+		}
+
+		"mg_ar_baggage"
+		{
+			"imagename"		"map-baggage-overall"
+			"nameID"		"#SFUI_Map_ar_baggage"
+			"name"			"mg_ar_baggage"
+			"maps"
+			{
+				"ar_baggage"		""
+			}
+		}
+
+		"mg_ar_shoots"
+		{
+			"imagename"		"map-vietnam-overall"
+			"nameID"		"#SFUI_Map_ar_shoots"
+			"name"			"mg_ar_shoots"
+			"maps"
+			{
+				"ar_shoots"		""
+			}
+		}
+
+		"mg_de_bank"
+		{
+			"imagename"		"map-bank-overall"
+			"nameID"		"#SFUI_Map_de_bank"
+			"name"			"mg_de_bank"
+			"maps"
+			{
+				"de_bank"		""
+			}
+		}
+
+		"mg_de_lake"
+		{
+			"imagename"		"map-boathouse-overall"
+			"nameID"		"#SFUI_Map_de_lake"
+			"name"			"mg_de_lake"
+			"maps"
+			{
+				"de_lake"		""
+			}
+		}
+
+		"mg_de_safehouse"
+		{
+			"imagename"		"map-house-overall"
+			"nameID"		"#SFUI_Map_de_safehouse"
+			"name"			"mg_de_safehouse"
+			"maps"
+			{
+				"de_safehouse"		""
+			}
+		}
+
+		"mg_de_sugarcane"
+		{
+			"imagename"		"map-mill-overall"
+			"nameID"		"#SFUI_Map_de_sugarcane"
+			"name"			"mg_de_sugarcane"
+			"maps"
+			{
+				"de_sugarcane"	""
+			}
+		}
+
+		"mg_de_stmarc"
+		{
+			"imagename"		"map-shacks-overall"
+			"nameID"		"#SFUI_Map_de_stmarc"
+			"name"			"mg_de_stmarc"
+			"maps"
+			{
+				"de_stmarc"		""
+			}
+		}
+
+		"mg_de_shorttrain"
+		{
+			"imagename"		"map-train-overall"
+			"nameID"		"#SFUI_Map_de_shorttrain"
+			"name"			"mg_de_shorttrain"
+			"maps"
+			{
+				"de_shorttrain"		""
+			}
+		}
+
+		"mg_training1"
+		{
+			"imagename"		"map-alleyway-overall"
+			"nameID"		"#SFUI_Map_training1"
+			"name"			"mg_training1"
+			"maps"
+			{
+				"training1"		""
+			}
+		}
+	}
+	
+	"maps"
+	{
+    	//
+		// Classic Maps
+		//
+
+		"cs_italy"
+		{
+			"nameID"			"#SFUI_Map_cs_italy"
+			"name"				"cs_italy"
+			"imagename"			"map-italy-overall"
+			"t_arms"			"models/weapons/t_arms_separatist.mdl"
+			"t_models"
+			{
+				"tm_separatist"		""
+				"tm_separatist_variantA"		""
+				"tm_separatist_variantB"		""
+				"tm_separatist_variantC"		""
+				"tm_separatist_variantD"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gign.mdl"
+			"ct_models"
+			{
+				"ctm_gign"		""
+				"ctm_gign_variantA"	""
+				"ctm_gign_variantB"	""
+				"ctm_gign_variantC"	""
+				"ctm_gign_variantD"	""
+			}
+			"hostage_models"
+			{
+				"models/hostage/hostage.mdl"	""
+				"models/hostage/hostage_variantA.mdl"	""
+				"models/hostage/hostage_variantB.mdl"	""
+				"models/hostage/hostage_variantC.mdl"	""
+			}
+		}
+	
+		"cs_office"
+		{
+			"nameID"			"#SFUI_Map_cs_office"
+			"name"				"cs_office"
+			"imagename"			"map-office-overall"
+			"t_arms"			"models/weapons/t_arms_anarchist.mdl"
+			"t_models"
+			{
+				"tm_anarchist"		""
+				"tm_anarchist_variantA"		""
+				"tm_anarchist_variantb"		""
+				"tm_anarchist_variantc"		""
+				"tm_anarchist_variantd"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_fbi.mdl"
+			"ct_models"
+			{
+				"ctm_fbi"		""
+				"ctm_fbi_variantA"	""
+				"ctm_fbi_variantB"	""
+				"ctm_fbi_variantC"	""
+				"ctm_fbi_variantD"	""
+			}
+			"hostage_models"
+			{
+				"models/hostage/hostage.mdl"	""
+				"models/hostage/hostage_variantA.mdl"	""
+				"models/hostage/hostage_variantB.mdl"	""
+				"models/hostage/hostage_variantC.mdl"	""
+			}
+		}
+	
+		"de_aztec"
+		{
+			"nameID"			"#SFUI_Map_de_aztec"
+			"name"				"de_aztec"
+			"imagename"			"map-aztec-overall"
+			"t_arms"			"models/weapons/t_arms_phoenix.mdl"
+			"t_models"
+			{
+				"tm_phoenix"		""
+				"tm_phoenix_variantA"	""
+				"tm_phoenix_variantB"	""
+				"tm_phoenix_variantC"	""
+				"tm_phoenix_variantD"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_st6.mdl"
+			"ct_models"
+			{
+				"ctm_st6"		""
+				"ctm_st6_variantA"	""
+				"ctm_st6_variantB"	""
+				"ctm_st6_variantC"	""
+				"ctm_st6_variantD"	""
+			}
+		}
+		
+		"de_train"
+		{
+			"nameID"			"#SFUI_Map_de_train"
+			"name"				"de_train"
+			"imagename"			"map-train-overall"
+			"t_arms"			"models/weapons/t_arms_balkan.mdl"
+			"t_models"
+			{
+				"tm_balkan_variantA"		""
+				"tm_balkan_variantB"		""
+				"tm_balkan_variantC"		""
+				"tm_balkan_variantD"		""
+				"tm_balkan_variantE"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_st6.mdl"
+			"ct_models"
+			{
+				"ctm_st6"		""
+				"ctm_st6_variantA"	""
+				"ctm_st6_variantB"	""
+				"ctm_st6_variantC"	""
+				"ctm_st6_variantD"	""
+			}
+		}
+				
+		"de_dust2"
+		{
+			"nameID"			"#SFUI_Map_de_dust2"
+			"name"				"de_dust2"
+			"imagename"			"map-dust2-overall"
+			"t_arms"			"models/weapons/t_arms.mdl"
+			"t_models"
+			{
+				"tm_leet_variantA"		""
+				"tm_leet_variantB"		""
+				"tm_leet_variantC"		""
+				"tm_leet_variantD"		""
+				"tm_leet_variantE"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_idf.mdl"
+			"ct_models"
+			{
+				"ctm_idf"		""
+				"ctm_idf_variantB"	""
+				"ctm_idf_variantC"	""
+				"ctm_idf_variantD"	""
+				"ctm_idf_variantE"	""
+				// We can only have 5 of these models so I'm removing this last one since it won't get read in anyway.
+				//"ctm_idf_variantF"	""
+			}
+		}
+	
+		"de_inferno"
+		{
+			"nameID"			"#SFUI_Map_de_inferno"
+			"name"				"de_inferno"
+			"imagename"			"map-inferno-overall"
+			"t_arms"			"models/weapons/t_arms_separatist.mdl"
+			"t_models"
+			{
+				"tm_separatist"		""
+				"tm_separatist_variantA"		""
+				"tm_separatist_variantB"		""
+				"tm_separatist_variantC"		""
+				"tm_separatist_variantD"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_sas.mdl"
+			"ct_models"
+			{
+				"ctm_sas_variantA"		""
+				"ctm_sas_variantB"		""
+				"ctm_sas_variantC"		""
+				"ctm_sas_variantD"		""
+				"ctm_sas"		""
+			}
+		}
+	
+		"de_nuke"
+		{
+			"nameID"            "#SFUI_Map_de_nuke"
+			"name"              "de_nuke"
+			"imagename"         "map-nuke-overall"
+			"t_arms"            "models/weapons/t_arms_phoenix.mdl"
+			"t_models"
+			{
+				"tm_phoenix"        ""
+				"tm_phoenix_variantA"   ""
+				"tm_phoenix_variantB"   ""
+				"tm_phoenix_variantC"   ""
+				"tm_phoenix_variantD"   ""
+			}
+			"ct_arms"           "models/weapons/ct_arms_st6.mdl"
+			"ct_models"
+			{
+				"ctm_st6"       ""
+				"ctm_st6_variantA"  ""
+				"ctm_st6_variantB"  ""
+				"ctm_st6_variantC"  ""
+				"ctm_st6_variantD"  ""
+			}
+		}
+
+		//
+		// Gun Game Maps
+		//
+
+		"ar_baggage"
+		{
+			"nameID"			"#SFUI_Map_ar_baggage"
+			"name"				"ar_baggage"
+			"imagename"			"map-baggage-overall"
+			"t_arms"			"models/weapons/t_arms_phoenix.mdl"
+			"t_models"
+			{
+				"tm_phoenix"		""
+				"tm_phoenix_variantA"	""
+				"tm_phoenix_variantB"	""
+				"tm_phoenix_variantC"	""
+				"tm_phoenix_variantD"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gsg9.mdl"
+			"ct_models"
+			{
+				"ctm_gsg9"		""
+				"ctm_gsg9_variantA"	""
+				"ctm_gsg9_variantB"	""
+				"ctm_gsg9_variantC"	""
+				"ctm_gsg9_variantD"	""
+			}
+		}
+		
+		"ar_shoots"
+		{
+			"nameID"			"#SFUI_Map_ar_shoots"
+			"name"				"ar_shoots"
+			"imagename"			"map-vietnam-overall"
+			"t_arms"			"models/weapons/t_arms_pirate.mdl"
+			"t_models"
+			{
+				"tm_pirate"		""
+				"tm_pirate_variantA"	""
+				"tm_pirate_variantC"	""
+				"tm_pirate_variantD"	""
+				"tm_pirate_variantB"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gign.mdl"
+			"ct_models"
+			{
+				"ctm_gign"		""
+				"ctm_gign_variantA"	""
+				"ctm_gign_variantB"	""
+				"ctm_gign_variantC"	""
+				"ctm_gign_variantD"	""
+			}
+		}
+
+		"de_lake"
+		{
+			"nameID"			"#SFUI_Map_de_lake"
+			"name"				"de_lake"
+			"imagename"			"map-boathouse-overall"
+			"t_arms"			"models/weapons/t_arms_phoenix.mdl"
+			"t_models"
+			{
+				"tm_phoenix"		""
+				"tm_phoenix_variantA"	""
+				"tm_phoenix_variantB"	""
+				"tm_phoenix_variantC"	""
+				"tm_phoenix_variantD"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_st6.mdl"
+			"ct_models"
+			{
+				"ctm_st6"		""
+				"ctm_st6_variantA"	""
+				"ctm_st6_variantB"	""
+				"ctm_st6_variantC"	""
+				"ctm_st6_variantD"	""
+			}
+		}
+
+		"de_bank"
+		{
+			"nameID"			"#SFUI_Map_de_bank"
+			"name"				"de_bank"
+			"imagename"			"map-bank-overall"
+			"t_arms"			"models/weapons/t_arms_professional.mdl"
+			"t_models"
+			{
+				"tm_professional"		""
+				"tm_professional_var1"		""
+				"tm_professional_var2"		""
+				"tm_professional_var3"		""
+				"tm_professional_var4"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_swat.mdl"
+			"ct_models"
+			{
+				"ctm_swat"			""
+				"ctm_swat_variantA"		""
+				"ctm_swat_variantB"		""
+				"ctm_swat_variantC"		""
+				"ctm_swat_variantD"		""
+
+			}
+		}
+
+		"de_safehouse"
+		{
+			"nameID"			"#SFUI_Map_de_safehouse"
+			"name"				"de_safehouse"
+			"imagename"			"map-house-overall"
+			"t_arms"			"models/weapons/t_arms_professional.mdl"
+			"t_models"
+			{
+				"tm_professional"		""
+				"tm_professional_var1"		""
+				"tm_professional_var2"		""
+				"tm_professional_var3"		""
+				"tm_professional_var4"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_swat.mdl"
+			"ct_models"
+			{
+
+				"ctm_swat"			""
+				"ctm_swat_variantA"		""
+				"ctm_swat_variantB"		""
+				"ctm_swat_variantC"		""
+				"ctm_swat_variantD"		""
+			}
+		}
+
+		"de_sugarcane"
+		{
+			"nameID"			"#SFUI_Map_de_sugarcane"
+			"name"				"de_sugarcane"
+			"imagename"			"map-mill-overall"
+			"t_arms"			"models/weapons/t_arms_pirate.mdl"
+			"t_models"
+			{
+				"tm_pirate"		""
+				"tm_pirate_variantA"	""
+				"tm_pirate_variantC"	""
+				"tm_pirate_variantD"	""
+				"tm_pirate_variantB"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gign.mdl"
+			"ct_models"
+			{
+				"ctm_gign"		""
+				"ctm_gign_variantA"	""
+				"ctm_gign_variantB"	""
+				"ctm_gign_variantC"	""
+				"ctm_gign_variantD"	""
+			}
+		}
+
+		"de_stmarc"
+		{
+			"nameID"			"#SFUI_Map_de_stmarc"
+			"name"				"de_stmarc"
+			"imagename"			"map-shacks-overall"
+			"t_arms"			"models/weapons/t_arms_pirate.mdl"
+			"t_models"
+			{
+				"tm_pirate"		""
+				"tm_pirate_variantA"	""
+				"tm_pirate_variantC"	""
+				"tm_pirate_variantD"	""
+				"tm_pirate_variantB"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gign.mdl"
+			"ct_models"
+			{
+				"ctm_gign"		""
+				"ctm_gign_variantA"	""
+				"ctm_gign_variantB"	""
+				"ctm_gign_variantC"	""
+				"ctm_gign_variantD"	""
+			}
+		}
+
+		"de_shorttrain"
+		{
+			"nameID"			"#SFUI_Map_de_shorttrain"
+			"name"				"de_shorttrain"
+			"imagename"			"map-train-overall"
+			"t_arms"			"models/weapons/t_arms_balkan.mdl"
+			"t_models"
+			{
+				"tm_balkan_variantA"		""
+				"tm_balkan_variantB"		""
+				"tm_balkan_variantC"		""
+				"tm_balkan_variantD"		""
+				"tm_balkan_variantE"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_sas.mdl"
+			"ct_models"
+			{
+				"ctm_sas_variantA"		""
+				"ctm_sas_variantB"		""
+				"ctm_sas_variantC"		""
+				"ctm_sas_variantD"		""
+				"ctm_sas"		""
+			}
+		}
+
+		//
+		// Random Map
+		//
+
+		"random"
+		{
+			"nameID"			"#SFUI_Map_random"
+			"name"				"random"
+			"minplayers"		"#SFUI_VariesByMap"
+			"maxplayers"		"#SFUI_VariesByMap"
+			"imagename"			"map-random-overall"
+			"t_models"
+			{
+				// these will be pulled from the assigned map
+			}
+			"ct_models"
+			{
+				// these will be pulled from the assigned map
+			}
+		}
+
+		//
+		// DLC Maps
+		//
+
+		"de_embassy"
+		{
+			"nameID"			"#SFUI_Map_de_embassy"
+			"name"				"de_embassy"
+			"imagename"			"map-dust-overall"
+			"t_arms"			"models/weapons/t_arms.mdl"
+			"t_models"
+			{
+				"tm_anarchist"		""
+				"tm_anarchist_variantA"		""
+				"tm_anarchist_variantb"		""
+				"tm_anarchist_variantc"		""
+				"tm_anarchist_variantd"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_swat.mdl"
+			"ct_models"
+			{
+				"ctm_swat"			""
+				"ctm_swat_variantA"		""
+				"ctm_swat_variantB"		""
+				"ctm_swat_variantC"		""
+				"ctm_swat_variantD"		""
+			}
+		}
+
+		"cs_assault"
+		{
+			"nameID"			"#SFUI_Map_cs_assault"
+			"name"				"cs_assault"
+			"imagename"			"map-assault-overall"
+			"t_arms"			"models/weapons/t_arms_phoenix.mdl"
+			"t_models"
+			{
+				"tm_phoenix"		""
+				"tm_phoenix_variantA"	""
+				"tm_phoenix_variantB"	""
+				"tm_phoenix_variantC"	""
+				"tm_phoenix_variantD"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_fbi.mdl"
+			"ct_models"
+			{
+				"ctm_fbi"		""
+				"ctm_fbi_variantA"	""
+				"ctm_fbi_variantB"	""
+				"ctm_fbi_variantC"	""
+				"ctm_fbi_variantD"	""
+			}
+		}
+
+		"de_balkan"
+		{
+			"nameID"			"#SFUI_Map_de_balkan"
+			"name"				"de_balkan"
+			"imagename"			"map-vostok-overall"
+			"t_arms"			"models/weapons/t_arms_balkan.mdl"
+			"t_models"
+			{
+				"tm_balkan_variantA"		""
+				"tm_balkan_variantB"		""
+				"tm_balkan_variantC"		""
+				"tm_balkan_variantD"		""
+				"tm_balkan_variantE"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gsg9.mdl"
+			"ct_models"
+			{
+				"ctm_gsg9"		""
+				"ctm_gsg9_variantA"	""
+				"ctm_gsg9_variantB"	""
+				"ctm_gsg9_variantC"	""
+				"ctm_gsg9_variantD"	""
+			}
+		}
+
+		"de_vertigo"
+		{
+			"nameID"			"#SFUI_Map_de_vertigo"
+			"name"				"de_vertigo"
+			"imagename"			"map-vertigo-overall"
+			"t_arms"			"models/weapons/t_arms_professional.mdl"
+			"t_models"
+			{
+				"tm_professional"		""
+				"tm_professional_var1"		""
+				"tm_professional_var2"		""
+				"tm_professional_var3"		""
+				"tm_professional_var4"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_fbi.mdl"
+			"ct_models"
+			{
+				"ctm_fbi"		""
+				"ctm_fbi_variantA"	""
+				"ctm_fbi_variantB"	""
+				"ctm_fbi_variantC"	""
+				"ctm_fbi_variantD"	""
+			}
+		}
+
+		"de_cranes"
+		{
+			"nameID"			"#SFUI_Map_de_cranes"
+			"name"				"de_cranes"
+			"imagename"			"map-cranes-overall"
+			"t_arms"			"models/weapons/t_arms_professional.mdl"
+			"t_models"
+			{
+				"tm_professional"		""
+				"tm_professional_var1"		""
+				"tm_professional_var2"		""
+				"tm_professional_var3"		""
+				"tm_professional_var4"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_fbi.mdl"
+			"ct_models"
+			{
+				"ctm_fbi"		""
+				"ctm_fbi_variantA"	""
+				"ctm_fbi_variantB"	""
+				"ctm_fbi_variantC"	""
+				"ctm_fbi_variantD"	""
+			}
+		}
+
+		"ar_monastery"
+		{
+			"nameID"			"#SFUI_Map_ar_monastery"
+			"name"				"ar_monastery"
+			"imagename"			"map-tibet-overall"
+			"t_arms"			"models/weapons/t_arms_balkan.mdl"
+			"t_models"
+			{
+				"tm_balkan_variantA"		""
+				"tm_balkan_variantB"		""
+				"tm_balkan_variantC"		""
+				"tm_balkan_variantD"		""
+				"tm_balkan_variantE"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gsg9.mdl"
+			"ct_models"
+			{
+				"ctm_gsg9"		""
+				"ctm_gsg9_variantA"	""
+				"ctm_gsg9_variantB"	""
+				"ctm_gsg9_variantC"	""
+				"ctm_gsg9_variantD"	""
+			}
+		}
+
+		"de_depot"
+		{
+			"nameID"			"#SFUI_Map_de_depot"
+			"name"				"de_depot"
+			"imagename"			"map-depot-overall"
+			"t_arms"			"models/weapons/t_arms_balkan.mdl"
+			"t_models"
+			{
+				"tm_balkan_variantA"		""
+				"tm_balkan_variantB"		""
+				"tm_balkan_variantC"		""
+				"tm_balkan_variantD"		""
+				"tm_balkan_variantE"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_gsg9.mdl"
+			"ct_models"
+			{
+				"ctm_gsg9"		""
+				"ctm_gsg9_variantA"	""
+				"ctm_gsg9_variantB"	""
+				"ctm_gsg9_variantC"	""
+				"ctm_gsg9_variantD"	""
+			}
+		}
+
+		"de_alleyway"
+		{
+			"nameID"			"#SFUI_Map_de_alleyway"
+			"name"				"de_alleyway"
+			"imagename"			"map-alleyway-overall"
+			"t_arms"			"models/weapons/t_arms_professional.mdl"
+			"t_models"
+			{
+				"tm_professional"		""
+				"tm_professional_var1"		""
+				"tm_professional_var2"		""
+				"tm_professional_var3"		""
+				"tm_professional_var4"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_swat.mdl"
+			"ct_models"
+			{
+				"ctm_swat"			""
+				"ctm_swat_variantA"		""
+				"ctm_swat_variantB"		""
+				"ctm_swat_variantC"		""
+				"ctm_swat_variantD"		""
+			}
+		}
+
+		"training1"
+		{
+			"nameID"			"#SFUI_Map_training1"
+			"name"				"training1"
+			"minplayers"		"1"
+			"maxplayers"		"1"
+			"extraspectators"	"2"
+			"imagename"			"map-alleyway-overall"
+			"t_arms"			"models/weapons/t_arms_phoenix.mdl"
+			"t_models"
+			{
+				"tm_phoenix"		""
+			}
+			"ct_arms"			"models/weapons/ct_arms_st6.mdl"
+			"ct_models"
+			{
+				"ctm_st6"		""
+			}
+		}
+	}
+}

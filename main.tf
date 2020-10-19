@@ -43,6 +43,11 @@ resource "digitalocean_droplet" "csgo" {
   }
 
   provisioner "file" {
+    source      = "csgo/gamemodes_server.txt"
+    destination = "/opt/csgo/server/csgo/cfg/gamemodes_server.txt"
+  }
+
+  provisioner "file" {
     source      = "csgo/csgo.service"
     destination = "/lib/systemd/system/csgo.service"
   }
