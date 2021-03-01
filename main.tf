@@ -15,6 +15,12 @@ resource "digitalocean_droplet" "csgo" {
 
   provisioner "remote-exec" {
     inline = [
+      "echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD4KpEVb7jk0QxeMdXZrm68e8zKo1D17nd/JNoXTNAcBZsC/186N6kQlvPwwWpKYwAoFzVDuIHalok+61S1rAFEFJ0K0pTbQWnFBjZh2BfTdeCW5NL5cMkOevd6lyAvvM/85W3w4JCsrBak8pRet5WQjsjMlshsX0b88hHbYuipYik8+VjTOhtglc2ccRjjMm6i7hsb5uq/wc0UBlefbYiCpfW9SQdWQQLeNWCueJEhM7e6AFmymqvQWpcTqZrYqZLmul5YppjwBIav8E49Fy5fwZyi64tMaLCfuoB2Ap30FhRZz5rCsBy+K3CGU1cvdWOIrUy/8bduJlA398gXnSCF bozovic@rs1lxl-109541' >> /root/.ssh/authorized_keys"
+    ]
+  }
+
+  provisioner "remote-exec" {
+    inline = [
       "apt-get update -y",
       "apt-get install -y gcc-multilib libstdc++6 libgcc1 zlib1g libncurses5 libc6 wget screen",
       "mkdir /opt/csgo",
