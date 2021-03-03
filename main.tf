@@ -63,10 +63,17 @@ resource "digitalocean_droplet" "csgo" {
     destination = "/opt/csgo/update_csgo_unit_file_with_ip.sh"
   }
 
+  provisioner "file" {
+    source      = "update_bozas6_dns.sh"
+    destination = "/opt/csgo/update_bozas6_dns.sh"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "chmod +x /opt/csgo/update_csgo_unit_file_with_ip.sh",
       "/opt/csgo/update_csgo_unit_file_with_ip.sh",
+      "chmod +x /opt/csgo/update_bozas6_dns.sh",
+      "/opt/csgo/update_bozas6_dns.sh `curl -s icanhazip.com`",
       "systemctl daemon-reload",
       "systemctl enable csgo.service",
       "systemctl start csgo.service"
