@@ -2,7 +2,7 @@ resource "digitalocean_droplet" "csgo" {
   image    = "ubuntu-16-04-x32"
   name     = "csgo"
   region   = "fra1"
-  size     = "s-4vcpu-8gb-intel"
+  size     = "s-4vcpu-8gb-amd"
   tags     = ["csgo"]
   ssh_keys = [data.digitalocean_ssh_key.terraform.id]
 
