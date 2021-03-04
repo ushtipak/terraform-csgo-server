@@ -19,15 +19,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Update Boza S6's DNS
-      run: |
-        NEW_IP=$(dig @8.8.8.8 +short csgo.pijupiju.com)
-        ./update_bozas6_dns.sh
-      env:
-        GODADDY_KEY: "${{ secrets.GODADDY_KEY }}"
-        GODADDY_SECRET: "${{ secrets.GODADDY_SECRET }}"
-        NEW_IP: "${NEW_IP}"
-
     - name: Update server pass
       run: |
         sed -i "s/SUPER_SECRET_TOKEN/${{ secrets.SUPER_SECRET_TOKEN }}/g" csgo/server.cfg
@@ -55,4 +46,13 @@ jobs:
       run: terraform apply -auto-approve -no-color -var "do_token=${DO_PAT}" -var "pvt_key=pvt_key"
       env:
         DO_PAT: "${{ secrets.DO_PAT }}"
+
+    - name: Update Boza S6's DNS
+      run: |
+        NEW_IP=$(dig @8.8.8.8 +short csgo.pijupiju.com)
+        ./update_bozas6_dns.sh
+      env:
+        GODADDY_KEY: "${{ secrets.GODADDY_KEY }}"
+        GODADDY_SECRET: "${{ secrets.GODADDY_SECRET }}"
+        NEW_IP: "${NEW_IP}"
 
