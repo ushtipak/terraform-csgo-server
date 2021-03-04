@@ -22,7 +22,6 @@ jobs:
     - name: Update Boza S6's DNS
       run: |
         NEW_IP=$(dig @8.8.8.8 +short csgo.pijupiju.com)
-        echo ${NEW_IP}
         ./update_bozas6_dns.sh
       env:
         GODADDY_KEY: "${{ secrets.GODADDY_KEY }}"
