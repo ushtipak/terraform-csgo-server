@@ -23,10 +23,11 @@ jobs:
       run: |
         NEW_IP=$(dig @8.8.8.8 +short csgo.pijupiju.com)
         echo ${NEW_IP}
-        ./update_bozas6_dns.sh ${NEW_IP}
+        ./update_bozas6_dns.sh
       env:
         GODADDY_KEY: "${{ secrets.GODADDY_KEY }}"
         GODADDY_SECRET: "${{ secrets.GODADDY_SECRET }}"
+        NEW_IP: "${NEW_IP}"
 
     # - name: Update server pass
     #   run: |

@@ -10,7 +10,7 @@ secret="$GODADDY_SECRET"         # secret for godaddy developer API
 
 headers="Authorization: sso-key $key:$secret"
 
-newIp="$1"
+newIp="${NEW_IP}"
 echo "newIp:" $newIp
 
 curl -X PUT "https://api.godaddy.com/v1/domains/$domain/records/$type/$name" \
@@ -18,3 +18,4 @@ curl -X PUT "https://api.godaddy.com/v1/domains/$domain/records/$type/$name" \
 	-H "Content-Type: application/json" \
 	-H "$headers" \
 	-d "[ { \"data\": \"$newIp\", \"port\": $port, \"priority\": 0, \"protocol\": \"string\", \"service\": \"string\", \"ttl\":600, \"weight\": 0 }]"
+
