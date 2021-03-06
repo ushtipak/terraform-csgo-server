@@ -2,7 +2,7 @@ name: (SCHEDULED) DESTROY-SERVER
 
 on:
   schedule:
-  - cron: "50 23 * * *"
+  - cron: "35 23 * * 0"
 
 jobs:
   destroy-server:
