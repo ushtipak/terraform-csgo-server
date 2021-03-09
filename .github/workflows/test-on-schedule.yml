@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Retrieve PVT_KEY
+    - name: Echo out when it should have run
       run: echo '40 19 * * 2'
 
