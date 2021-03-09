@@ -2,7 +2,7 @@ name: (SCHEDULED) CREATE-SERVER
 
 on:
   schedule:
-  - cron: "30 18 * * 2"
+  - cron: "32 18 * * 2"
 
 jobs:
   create-server:
