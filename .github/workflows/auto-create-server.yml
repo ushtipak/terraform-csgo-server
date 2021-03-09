@@ -1,0 +1,54 @@
+name: (SCHEDULED) CREATE-SERVER
+
+on:
+  schedule:
+  - cron: "28 15 * * 2"
+
+jobs:
+  create-server:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Update Terraform slug
+      run: ./update_tf_slug.sh ${DO_PAT}
+      env:
+        DO_PAT: "${{ secrets.DO_PAT }}"
+
+    - name: Update server pass
+      run: sed -i "s/SUPER_SECRET_TOKEN/${{ secrets.SUPER_SECRET_TOKEN }}/g" csgo/server.cfg
+
+    - name: Update Steam Game Server token
+      run: sed -i "s/STEAM_TOKEN/${{ secrets.STEAM_TOKEN }}/g" csgo/server.cfg
+
+    - name: Fetch Terraform binary
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.13.4
+
+    - name: Terraform init
+      run: terraform init
+
+    - name: Retrieve PVT_KEY
+      run: |
+        echo "${PVT_KEY}" > pvt_key
+        sudo chmod 600 pvt_key
+      env:
+        PVT_KEY: "${{ secrets.PVT_KEY }}"
+
+    - name: Terraform apply
+      run: terraform apply -auto-approve -no-color -var "do_token=${DO_PAT}" -var "pvt_key=pvt_key"
+      env:
+        DO_PAT: "${{ secrets.DO_PAT }}"
+
+    - name: Update Boza S6's DNS
+      run: |
+        NEW_IP=$(dig @8.8.8.8 +short csgo.pijupiju.com)
+        ./update_bozas6_dns.sh
+      env:
+        GODADDY_KEY: "${{ secrets.GODADDY_KEY }}"
+        GODADDY_SECRET: "${{ secrets.GODADDY_SECRET }}"
+        NEW_IP: "${NEW_IP}"
+
