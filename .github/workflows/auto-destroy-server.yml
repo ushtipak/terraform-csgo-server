@@ -1,0 +1,16 @@
+name: (SCHEDULED) DESTROY-SERVER
+
+on:
+  schedule:
+  - cron: "18 05 * * *"
+
+jobs:
+  destroy-server:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Destroy droplet
+      run: |
+        curl -s -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.DO_PAT }}" "https://api.digitalocean.com/v2/droplets?tag_name=csgo"
+      shell: bash
+
