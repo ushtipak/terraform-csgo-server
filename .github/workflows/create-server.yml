@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install netcat
-      run: sudo apt get install -y netcat
+      run: sudo apt-get install -y netcat
 
     - name: Verify server is up
       run: nc -z csgo.pijupiju.com 27015
