@@ -137,6 +137,18 @@
 
 	"mapgroups"
 	{
+		"mg_active"
+		{
+		  "name" "mg_active"
+		  "maps"
+		  {
+		    "de_mirage" ""
+		    "de_inferno" ""
+		    "de_overpass" ""
+		    "de_dust2" ""
+		    "cs_italy" ""
+		  }
+
 		"mg_hostage"
 		{
 			"imagename"		"mapgroup-hostage"
