@@ -1,6 +1,8 @@
 name: CREATE-SERVER
 
 on:
+  repository_dispatch:
+    types: mobile-create-service
   workflow_dispatch:
     inputs:
       token:
