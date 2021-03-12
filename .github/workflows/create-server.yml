@@ -14,9 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Verify create token
-      run: if [[ "${{ github.event.inputs.token }}" != "${{ secrets.SUPER_SECRET_TOKEN }}" ]]; then echo "Aaaaaaaaagh"; exit 2; fi
-
     - name: Checkout code
       uses: actions/checkout@v2
 
