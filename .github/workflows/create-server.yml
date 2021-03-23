@@ -58,5 +58,5 @@ jobs:
         NEW_IP: "${NEW_IP}"
 
     - name: Verify server is up
-      run: nc -z csgo.pijupiju.com -w 10 27015
+      run: nc -z csgo.pijupiju.com -w 60 27015
 
