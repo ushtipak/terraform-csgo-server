@@ -57,6 +57,6 @@ jobs:
         GODADDY_SECRET: "${{ secrets.GODADDY_SECRET }}"
         NEW_IP: "${NEW_IP}"
 
-    - name: Verify server is up
-      run: nc -z csgo.pijupiju.com -w 60 27015
+    # - name: Verify server is up
+    #   run: nc -z csgo.pijupiju.com -w 60 27015
 
