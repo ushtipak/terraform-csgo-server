@@ -1,5 +1,5 @@
 resource "digitalocean_droplet" "csgo" {
-  image    = "ubuntu-16-04-x32"
+  image    = "ubuntu-20-04-x64"
   name     = "csgo"
   region   = "fra1"
   size     = "UPDATESLUG"
