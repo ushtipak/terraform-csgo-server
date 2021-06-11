@@ -17,6 +17,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Ensure that server is not running already
+      run: ./prevent_multiple_start.sh
+
     - name: Update Terraform slug
       run: ./update_tf_slug.sh ${DO_PAT}
       env:
